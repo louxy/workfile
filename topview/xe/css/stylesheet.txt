@@ -1,0 +1,245 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-1p2z_on {
+    width: 40px;
+    height: 40px;
+    background-position: -5px -5px;
+}
+
+.sprite-1p2z_up {
+    width: 40px;
+    height: 40px;
+    background-position: -55px -5px;
+}
+
+.sprite-1p_on {
+    width: 40px;
+    height: 40px;
+    background-position: -105px -5px;
+}
+
+.sprite-1p_up {
+    width: 40px;
+    height: 40px;
+    background-position: -155px -5px;
+}
+
+.sprite-1z_on {
+    width: 40px;
+    height: 40px;
+    background-position: -205px -5px;
+}
+
+.sprite-1z_up {
+    width: 40px;
+    height: 40px;
+    background-position: -255px -5px;
+}
+
+.sprite-2p_on {
+    width: 40px;
+    height: 40px;
+    background-position: -305px -5px;
+}
+
+.sprite-2p_up {
+    width: 40px;
+    height: 40px;
+    background-position: -5px -55px;
+}
+
+.sprite-4z_on {
+    width: 40px;
+    height: 40px;
+    background-position: -55px -55px;
+}
+
+.sprite-4z_up {
+    width: 40px;
+    height: 40px;
+    background-position: -105px -55px;
+}
+
+.sprite-A1_on {
+    width: 46px;
+    height: 34px;
+    background-position: -155px -55px;
+}
+
+.sprite-A1_up {
+    width: 47px;
+    height: 34px;
+    background-position: -211px -55px;
+}
+
+.sprite-A2_on {
+    width: 46px;
+    height: 46px;
+    background-position: -268px -55px;
+}
+
+.sprite-A2_up {
+    width: 46px;
+    height: 46px;
+    background-position: -5px -111px;
+}
+
+.sprite-A3_on {
+    width: 35px;
+    height: 46px;
+    background-position: -61px -111px;
+}
+
+.sprite-A3_up {
+    width: 35px;
+    height: 46px;
+    background-position: -106px -111px;
+}
+
+.sprite-A4_on {
+    width: 46px;
+    height: 46px;
+    background-position: -151px -111px;
+}
+
+.sprite-A4_up {
+    width: 46px;
+    height: 46px;
+    background-position: -207px -111px;
+}
+
+.sprite-A5_on {
+    width: 46px;
+    height: 35px;
+    background-position: -263px -111px;
+}
+
+.sprite-A5_up {
+    width: 47px;
+    height: 35px;
+    background-position: -263px -156px;
+}
+
+.sprite-A6_on {
+    width: 46px;
+    height: 46px;
+    background-position: -5px -201px;
+}
+
+.sprite-A6_up {
+    width: 45px;
+    height: 46px;
+    background-position: -61px -201px;
+}
+
+.sprite-A7_on {
+    width: 34px;
+    height: 46px;
+    background-position: -320px -111px;
+}
+
+.sprite-A7_up {
+    width: 35px;
+    height: 46px;
+    background-position: -116px -167px;
+}
+
+.sprite-A8_on {
+    width: 46px;
+    height: 46px;
+    background-position: -161px -201px;
+}
+
+.sprite-A8_up {
+    width: 45px;
+    height: 46px;
+    background-position: -217px -201px;
+}
+
+.sprite-OK_on {
+    width: 57px;
+    height: 57px;
+    background-position: -272px -201px;
+}
+
+.sprite-OK_up {
+    width: 57px;
+    height: 57px;
+    background-position: -5px -268px;
+}
+
+.sprite-Zoom-in-_-on {
+    width: 100px;
+    height: 71px;
+    background-position: -72px -268px;
+}
+
+.sprite-Zoom-in-_-up {
+    width: 100px;
+    height: 71px;
+    background-position: -182px -268px;
+}
+
+.sprite-Zoom-out-_-on {
+    width: 101px;
+    height: 71px;
+    background-position: -355px -5px;
+}
+
+.sprite-Zoom-out-_-up {
+    width: 101px;
+    height: 71px;
+    background-position: -364px -86px;
+}
+
+.sprite-button1_on {
+    width: 41px;
+    height: 21px;
+    background-position: -5px -167px;
+}
+
+.sprite-button1_up {
+    width: 41px;
+    height: 21px;
+    background-position: -56px -167px;
+}
+
+.sprite-button2_on {
+    width: 84px;
+    height: 21px;
+    background-position: -161px -167px;
+}
+
+.sprite-button2_up {
+    width: 84px;
+    height: 21px;
+    background-position: -320px -167px;
+}
+
+.sprite-button3_on {
+    width: 41px;
+    height: 21px;
+    background-position: -414px -167px;
+}
+
+.sprite-button3_up {
+    width: 41px;
+    height: 21px;
+    background-position: -339px -198px;
+}
+
+.sprite-home_on {
+    width: 31px;
+    height: 31px;
+    background-position: -390px -198px;
+}
+
+.sprite-home_up {
+    width: 31px;
+    height: 31px;
+    background-position: -431px -198px;
+}

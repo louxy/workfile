@@ -1,0 +1,89 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-Preview_off {
+    width: 15px;
+    height: 15px;
+    background-position: -5px -5px;
+}
+
+.sprite-alarm_icon {
+    width: 25px;
+    height: 25px;
+    background-position: -30px -5px;
+}
+
+.sprite-face_icon {
+    width: 25px;
+    height: 25px;
+    background-position: -65px -5px;
+}
+
+.sprite-fullscreen_icon {
+    width: 25px;
+    height: 25px;
+    background-position: -5px -40px;
+}
+
+.sprite-left {
+    width: 14px;
+    height: 15px;
+    background-position: -100px -5px;
+}
+
+.sprite-motion_icon {
+    width: 25px;
+    height: 25px;
+    background-position: -40px -40px;
+}
+
+.sprite-rec_off {
+    width: 25px;
+    height: 25px;
+    background-position: -75px -40px;
+}
+
+.sprite-rec_on {
+    width: 25px;
+    height: 25px;
+    background-position: -5px -75px;
+}
+
+.sprite-right {
+    width: 14px;
+    height: 15px;
+    background-position: -40px -75px;
+}
+
+.sprite-setting {
+    width: 32px;
+    height: 32px;
+    background-position: -64px -75px;
+}
+
+.sprite-snapshot_icon {
+    width: 25px;
+    height: 25px;
+    background-position: -124px -5px;
+}
+
+.sprite-status {
+    width: 26px;
+    height: 26px;
+    background-position: -110px -40px;
+}
+
+.sprite-zoom_icon_off {
+    width: 25px;
+    height: 25px;
+    background-position: -106px -76px;
+}
+
+.sprite-zoom_icon_on {
+    width: 25px;
+    height: 25px;
+    background-position: -5px -111px;
+}

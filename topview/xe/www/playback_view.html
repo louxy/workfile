@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<title>Camera Playback Viewer</title>
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/neutral.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/jquery.form.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_playback_view"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.1.3.min.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/jquery.form.js" defer></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_playback_view" defer></script>
+<!--<![endif]-->
+</head>
+	<body>
+		<div id="show_view" style='width:800px; height :600px; margin:auto;'>
+		</div>
+		<div id="ctrl_view" style="width:800px; height:250px; margin:auto;">
+			<div style="padding-top:5px; background-color:silver;">
+				<span style="padding-left:18%;"></span>
+				<img id ="stop_pic" src="/css/images/Stop_over.png" style="cursor:pointer;"></img>
+				<span style="padding-left:13%;"></span>
+				<img id ="backward_pic" src="/css/images/Backward_over.png" style="cursor:pointer;"></img>
+				<span style="padding-left:14%;"></span>
+				<img id ="forward_pic" src="/css/images/Forward_over.png" style="cursor:pointer;"></img>
+				<span style="padding-left:13%;"></span>
+				<img id="play_pause" src="/css/images/Pause_over.png" style="cursor:pointer;"></img>
+			</div>
+		</div>
+	</body>
+</html>
