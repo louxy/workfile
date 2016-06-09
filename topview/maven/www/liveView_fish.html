@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_liveView_fish"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_liveView_fish" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div>
+						<table border="0" style="width:100%;">
+							<tbody>
+								<tr>
+									<td><select id="lang_select"></select></td>
+								</tr>
+							</tbody>
+				  		</table>
+					</div>
+					<div>
+						<span id="Fdisplay_setting">Display Setting</span>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td width="140"><label id="video_orientation">Video Orientation:</label></td>
+								<td><select id="video_display"></select></td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td width="140"><label id="aspect_ratio">Keep Aspect Ratio:</label></td>
+								<td><select id="ratio_enable" style="width:60px;"></select></td>
+							</tr>
+						</table>
+					</div>
+					<div>
+						<span id="Fview_select">View Select</span>
+					</div>
+					<div id="Fview_pic">
+						<div><img id="activex_fisheye" src="/css/images/fisheye_dis.png" width="31" height="31"></img></div>
+						<div><img id="activex_panaroma" src="/css/images/panaroma_dis.png" width="31" height="31"></img></div>
+						<div><img id="activex_quad" src="/css/images/quad_dis.png" width="31" height="31"></img></div>
+						<div><img id="activex_fview1" src="/css/images/fview1_dis.png" width="31" height="31"></img></div>
+					</div>
+					<div id="Fview_pic2">
+						<div><img id="activex_fview2" src="/css/images/fview2_dis.png" width="31" height="31"></img></div>
+						<div><img id="activex_fview3" src="/css/images/fview3_dis.png" width="31" height="31"></img></div>
+						<div><img id="activex_fview4" src="/css/images/fview4_dis.png" width="31" height="31"></img></div>
+					</div>
+				</div>
+				<div id="liveView_content">
+					<div id="liveView_conf">
+						<div id="liveView_conf_pic"></div>
+
+						<div id="fish_frame" style="width:660px;height:500px;">
+							<iframe src="fish.html" name="fish_frame_tage" id="fish_frame_tage" width="100%" height="100%" frameborder="0" scrolling="auto"></iframe>
+						</div>
+						<div id="FView_conf_pic" style="width:650px;">
+							<div id="at_area" style="float: right; width: 17%; margin: 10px auto;">
+								<div style="float: left;">
+									<img id="activex_fulscren" src="/css/images/fullscreen_icon.png" height="47" width="47">
+								</div>
+								<div id="at_correction" style="float: right;">
+									<img id="activex_correction" src="/css/images/correction_dis_icon.png" height="47" width="47">
+								</div>
+							</div>
+						</div>
+					</div>
+                    
+					<div style="display:none;">
+						<form id="form_download" action="/cgi-bin/snap.cgi" method="get"></form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

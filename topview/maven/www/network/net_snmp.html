@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_net_snmp"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_net_snmp" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Msnmp_1_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Msnmp_1"></label>
+						<input type="radio" name="Nsnmp_1" id="Isnmp_1" value="on"><span id="Msnmp_1_on" class="spantex"></span>
+						<input type="radio" name="Nsnmp_1" id="Isnmp_1" value="off"><span id="Msnmp_1_off" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Msnmp_2_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Msnmp_2"></label>
+						<input type="radio" name="Nsnmp_2" id="Isnmp_2" value="on"><span id="Msnmp_2_on" class="spantex"></span>
+						<input type="radio" name="Nsnmp_2" id="Isnmp_2" value="off"><span id="Msnmp_2_off" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Msnmp_3_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Msnmp_3"></label>
+						<input type="radio" name="Nsnmp_3" id="Isnmp_3" value="on"><span id="Msnmp_3_on" class="spantex"></span>
+						<input type="radio" name="Nsnmp_3" id="Isnmp_3" value="off"><span id="Msnmp_3_off" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Msnmp_3_user"></label>
+						<input type="text" id="Isnmp_3_user" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Msnmp_3_auth_mode"></label>
+						<select id="Isnmp_3_auth_mode"></select><input type="password" id="Isnmp_3_auth_passwd" size="15" style="margin-left:10px;margin-right:10px;"><font color="red" style="display:none;"><span class="spantex" id="auth_note"></span></font>
+					</div>
+					<div class="content_input">
+						<label id="Msnmp_3_privacy_mode"></label>
+						<select id="Isnmp_3_privacy_mode"></select><input type="password" id="Isnmp_3_privacy_passwd" size="15" style="margin-left:10px;margin-right:10px;"><font color="red" style="display:none;"><span class="spantex" id="privacy_note"></span></font>
+					</div>
+					<div class="content_title">
+						<label id="Mread_write_string"></label>
+					</div>
+					<div class="content_input">
+						<label id="Msnmp_read_string"></label>
+						<input type="text" id="Isnmp_read_string" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Msnmp_write_string"></label>
+						<input type="text" id="Isnmp_write_string" size="15">
+					</div>
+					<div class="content_title">
+						<label id="Mtrap"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mtrap_enable"></label>
+						<input type="radio" name="Ntrap_enable" id="Itrap_enable" value="on"><span id="Mtrap_enable_on" class="spantex"></span>
+						<input type="radio" name="Ntrap_enable" id="Itrap_enable" value="off"><span id="Mtrap_enable_off" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Mtrap_host"></label>
+						<input type="text" id="Itrap_host" size="15">
+					</div>
+					<div class="content_title">
+						<label id="Mheartbeat"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mheartbeat_enable"></label>
+						<input type="radio" name="Nheartbeat_enable" id="Iheartbeat_enable" value="on"><span id="Mheartbeat_enable_on" class="spantex"></span>
+						<input type="radio" name="Nheartbeat_enable" id="Iheartbeat_enable" value="off"><span id="Mheartbeat_enable_off" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Mheartbeat_host"></label>
+						<input type="text" id="Iheartbeat_host" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mheartbeat_interval"></label>
+						<input type="text" id="Iheartbeat_interval" size="15"><font color="red"><span class="spantex" id="Mheartbeat_interval_note"></span></font>
+					</div>
+					<div class="content_title">
+						<label id="MdownloadMIB"></label>
+					</div>
+					<div class="content_input">
+						<label>&nbsp;</label>
+						<form id="form_mib" action="/cgi-bin/systemmib.cgi" method="post" style="margin:4px 0px;">
+							<input type="submit" size="15" id="IDownload_Button"><input type="text" name="text" value="savemib" style="visibility:hidden; width:20px">	
+						</form>
+					</div>
+					<div class="content_setting"></div>
+					<div class="content_hei"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div id="smallview_conf">
+					<div id="smallview_conf_pic"></div>
+					<div id="activex_area"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

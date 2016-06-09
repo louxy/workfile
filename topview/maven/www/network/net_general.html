@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_net_general"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_net_general" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Mnet_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mview_net_infor"></label>
+						<input type="button" name="Nview_net_infor" id="Iview_net_infor">
+					</div>
+					<div class="content_input">
+						<label id="Mnet_camera_name"></label>
+						<input type="text" id="Inet_camera_name" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mhttp_port"></label>
+						<input type="text" id="Ihttp_port" size="5"><span class="spax_range" id="Ihttp_port_range">(1~65535)</span>
+					</div>
+					<div class="content_input">
+						<label id="Mhttps_port"></label>
+						<input type="text" id="Ihttps_port" size="5"><span class="spax_range" id="Ihttps_port_range">(1~65535)</span>
+					</div>
+					<div class="content_title">
+						<label id="Mnet_ipv4_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mdhcp"></label>
+						<input type="checkbox" name="Ndhcp" id="Idhcp">
+					</div>
+					<div class="content_input">
+						<label id="Mnet_ip"></label>
+						<input type="text" id="Inet_ip" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mnet_subnet"></label>
+						<input type="text" id="Inet_subnet" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mnet_gateway"></label>
+						<input type="text" id="Inet_gateway" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mnet_primary_dns"></label>
+						<input type="text" id="Inet_primary_dns" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mnet_second_dns"></label>
+						<input type="text" id="Inet_second_dns" size="15">
+					</div>
+					<!-- -->
+					<div class="content_title">
+						<label id="Mnet_ipv6_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Men_ipv6"></label>
+						<input type="checkbox" name="Nen_ipv6" id="Ien_ipv6">
+					</div>
+					<div class="content_input">
+						<label id="Men_ipv6_router_advert"></label>
+						<input type="checkbox" name="Nen_ipv6_router_advert" id="Ien_ipv6_router_advert">
+					</div>
+					<div class="content_input">
+						<label id="Men_ipv6_dhcp"></label>
+						<input type="checkbox" name="Nen_ipv6_dhcp" id="Ien_ipv6_dhcp">
+					</div>
+					<div class="content_input">
+						<label id="Men_ipv6_addr"></label>
+						<input type="text" id="Ien_ipv6_addr" size="40">
+					</div>
+					<div class="content_input">
+						<label id="Men_ipv6_addr_prefix_length"></label>
+						<input type="text" id="Ien_ipv6_addr_prefix_length" size="2"><span class="spax_range" id="Ien_ipv6_addr_prefix_length_range"></span>
+					</div>
+					<div class="content_input">
+						<label id="Men_ipv6_default"></label>
+						<input type="text" id="Ien_ipv6_default" size="40">
+					</div>
+					<div class="content_input">
+						<label id="Men_ipv6_default_prefix_length"></label>
+						<input type="text" id="Ien_ipv6_default_prefix_length" size="2"><span class="spax_range" id="Ien_ipv6_default_prefix_length_range"></span>
+					</div>
+					<div class="content_input">
+						<label id="Men_ipv6_dns"></label>
+						<input type="text" id="Ien_ipv6_dns" size="40">
+					</div>
+					<!-- -->
+					<div class="content_title">
+						<label id="Mupnp_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mupnp"></label>
+						<input type="radio" name="Nupnp" id="Iupnp" value="on"><span id="upnp_on" class="spantex"></span>
+						<input type="radio" name="Nupnp" id="Iupnp" value="off"><span id="upnp_off" class="spantex"></span>
+					</div>
+					<!--
+					<div class="content_title">
+						<label id="Mbonjour_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mbonjour"></label>
+						<input type="radio" name="Nbonjour" id="Ibonjour" value="on"><span id="bonjour_on" class="spantex"></span>
+						<input type="radio" name="Nbonjour" id="Ibonjour" value="off"><span id="bonjour_off" class="spantex"></span>
+					</div>
+					-->
+					<div class="content_title">
+						<label id="Mosd_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mosd_name"></label>
+						<select id="Iosd_name"></select><input type="text" id="Iosd_text" size="30" style="display:none;">
+					</div>
+					<div class="content_input">
+						<label id="Mosd_name_position" style="display:none;"></label>
+						<select id="Iosd_name_position" style="display:none;"></select>
+					</div>
+					<div class="content_input">
+						<label id="Mosd_time"></label>
+						<input type="radio" name="Nosd_time" id="Iosd_time" value="on"><span id="osd_time_on" class="spantex"></span>
+						<input type="radio" name="Nosd_time" id="Iosd_time" value="off"><span id="osd_time_off" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Mosd_time_position" style="display:none;"></label>
+						<select id="Iosd_time_position" style="display:none;"></select>
+					</div>
+					<div class="content_setting"></div>
+					<div class="content_hei"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div id="smallview_conf">
+					<div id="smallview_conf_pic"></div>
+					<div id="activex_area"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

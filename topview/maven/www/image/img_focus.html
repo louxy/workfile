@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.slider.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<link rel="stylesheet" href="/css/jquery.ui.theme.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<link rel="stylesheet" href="/css/jquery.Jcrop.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.core.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/jquery.Jcrop.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_img_focus"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.ui.core.js" defer></script>
+<script type="text/javascript" src="/js/jquery.ui.widget.js" defer></script>
+<script type="text/javascript" src="/js/jquery.ui.mouse.js" defer></script>
+<script type="text/javascript" src="/js/jquery.ui.slider.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/jquery.Jcrop.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_img_focus" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+<input type="hidden" id="checkAutoFocus" value="" />
+<input type="hidden" id="grey_out_val" value="" />
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Mfocus_length_cotrol"></label>
+					</div>
+					<div class="content_input">
+					</div>
+					<div class="content_slider" style="height:48px;">
+						<div style="width: 140px; text-align:right; margin:7px 5px 0px 0px; float:left;">
+							<label id="Mlen_zoom" </label>
+						</div>
+						<div style="float:left; width:120px;">
+							<input type="text" size="4"id="Mlen_zoom_value" disabled="disabled">
+						</div>
+						<div class="content_slider_bar" style="margin-top:2pt;">			
+							<div style="float:left; margin-right:9px;">
+									<input type="button" id="Mlen_zoom_out_high"> 
+									<input type="button" id="Mlen_zoom_out_slow">
+							</div>
+							<div class="slider" id="Mlen_zoom_bar" style="float:left;">	
+							</div>
+							<div style="float:left; margin-left:7px;">
+									<input type="button" id="Mlen_zoom_in_slow">
+									<input type="button" id="Mlen_zoom_in_high">
+							</div>
+						</div>
+						
+					</div>
+					<div></div>
+					<div class="content_input">
+					</div>
+					<div class="content_slider" style="margin-top:5pt; height:48px;">
+						<div style="width: 140px; text-align:right; margin:7px 5px 0px 0px; float:left;">
+							<label id="Mlen_focus"></label>			
+						</div>
+						<div style="float:left; width:120px;">
+							<input type="text" size="4"id="Mlen_focus_value" disabled="disabled">
+						</div>
+						<div class="content_slider_bar" style="margin-top:2pt;">	
+							<div style="float:left; margin-right:9px;">		
+								<input type="button" id="Mlen_focus_far_high"> 
+								<input type="button" id="Mlen_focus_far_slow">
+							</div>
+							<div class="slider" id="Mlen_focus_bar" style="float:left;">
+							</div>
+							<div style="float:left; margin-left:7px;">
+								<input type="button" id="Mlen_focus_near_slow">
+								<input type="button" id="Mlen_focus_near_high"> 
+							</div>
+						</div>
+					</div>
+					<div class="content_select">
+						<div style="width: 140px; text-align:right; margin:5px 5px 3px 0px; float:left; display:block;">
+							<label id="Mlen_focus_view" style="font-size:10pt;"></label>
+						</div>
+						<select id="Ilen_focus_view"></select>
+					</div>
+					<br>
+					<!-- Loux Hidden Focus-->
+					<br>
+					<div style="width:520px; height:25px; display:table; position:absolute; margin:-15px 10px 10px 10px">
+						<center>
+							<input type="button" id="focus_do">
+							<input type="button" id="focus_calibration">
+						</center>
+					</div>
+					<br>
+					<div class="content_title">
+						<label id="Mlen_focus_control"></label>
+					</div>
+					<div class="content_select">
+						<div style="width: 80px; text-align:right; margin:3px 5px 3px 0px; float:left; display:block;">
+							<label id="Mlen_focus_mode" style="font-size:10pt;"></label>
+						</div>
+						<select id="Ilen_focus_mode"></select>
+					</div>
+					<div class="content_setting"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div id="smallview_conf">
+					<div id="smallview_conf_pic"></div>
+					<div id="activex_area"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

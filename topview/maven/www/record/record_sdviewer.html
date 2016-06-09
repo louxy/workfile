@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv='Content-language' content='en-US'>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta http-equiv="Expires" content="0"> 
+<meta http-equiv="Pragma" content="no-cache">	
+<meta http-equiv="Cache-Control" content="no-cache">
+<link rel="stylesheet" href="../css/neutral.css">
+<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="../js/neutral.js"></script>
+<script type="text/javascript" src="../js/lang_en.js"></script>
+<script type="text/javascript" src="../js/jquery.browserLanguage.js"></script>
+<script type="text/javascript" src="../js/record_sdviewer.js"></script>
+<script type="text/javascript" src="../js/jquery.media.js"></script>
+<script type="text/javascript" src="../js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	(function($){
+		InitialPageLanguage();
+	})(jQuery);
+});
+</script>
+</head>
+<body>
+<div class="media"> 
+	<object codebase="http://www.apple.com/qtactivex/qtplugin.cab" 
+		classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B">
+		<embed src="sample.mov" pluginspage="http://www.apple.com/quicktime/download/"></embed> 
+	</object> 
+</div>
+<div id="blockUI" style="display:none;" class="blockUI">
+	<div class="blockHeader">
+		<p style="font-weight:bold;margin-top:5px;"><span id="block_header_description"></span></p>
+	</div>
+	<div class="blockContent">
+		<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+			<center>
+				<img src="../css/images/spinner.gif" align="top">
+			</center>
+	</div>
+</div>
+</body>
+</html>

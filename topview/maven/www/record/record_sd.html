@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<link rel="stylesheet" href="/css/jquery.ui.theme.css">
+<link rel="stylesheet" href="/css/jquery.ui.progressbar.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_record_sd"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/jquery-ui.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_record_sd" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Msd_condition_title"></label>
+					</div>
+					<div class="content_form">
+						<label id="Msd_condition"></label>
+						<input type="radio" name="Nrecord_conditions" id="Irecord_conditions_1" value="scheduled"><span id="ISD_Conditions1_Scheduled" class="spantex"></span>
+						<input type="radio" name="Nrecord_conditions" id="Irecord_conditions_1" value="alarm"><span id="ISD_Conditions1_Alarm" class="spantex"></span>
+						<input type="radio" name="Nrecord_conditions" id="Irecord_conditions_1" value="motion"><span id="ISD_Conditions1_Motion" class="spantex"></span>
+						<input type="radio" name="Nrecord_conditions" id="Irecord_conditions_1" value="network_loss"><span id="ISD_Conditions1_NetworkLoss" class="spantex"></span>
+						<!--<input type="radio" name="Nrecord_conditions" id="Irecord_conditions_1" value="scheduled"><span id="ISD_Conditions1_Scheduled" class="spantex"></span>-->
+						<input type="radio" name="Nrecord_conditions" id="Irecord_conditions_1" value="off"><span id="ISD_Conditions1_Off" class="spantex"></span>
+					</div>
+					<div class="content_label" style="display:none;">
+						<label>&nbsp;</label>
+						<font color="red"><span id='Iwarning_note'></span></font>
+					</div>
+					<!--
+					<div class="content_select">
+						<label id="Msd_record_schedule_mode"></label>
+						<select id="Isd_record_schedule_mode"></select>
+					</div>
+					
+					<div class="content_input">
+						<label id="Mmonth_of_group"></label>
+						<table id="Isd_record_schedule_list_of_month" width="80%"><tbody></tbody></table>	
+					</div>
+					<div class="content_input">
+						<label id="Mweek_of_group"></label>
+						<table id="Isd_record_schedule_list_of_week" width="80%"><tbody></tbody></table>	
+					</div>
+					<div class="content_input">
+						<label id="Mday_of_group"></label>
+						<table id="Isd_record_schedule_list_of_day" width="80%"><tbody></tbody></table>	
+					</div>
+					-->
+					<div class="content_title">
+						<label id="Msd_record_time"></label>
+					</div>
+					<div class="content_select">
+						<label id="Msd_record_time_alarm"></label>
+						<select id="Isd_record_time_alarm"></select>
+					</div>
+					<div class="content_select">
+						<label id="Msd_record_time_motion"></label>
+						<select id="Isd_record_time_motion"></select>
+					</div>
+					<div class="content_input">
+						<label id="Msd_overwrite"></label>
+						<input type="radio" name="Nsd_overwrite" id="Isd_overwrite" value="on"><span id="Msd_overwrite_on" class="spantex"></span>
+						<input type="radio" name="Nsd_overwrite" id="Isd_overwrite" value="off"><span id="Msd_overwrite_off" class="spantex"></span>
+					</div>
+				<!--  -->
+					<div class="content_title">
+						<label id="Msd_schedule_table"></label>
+					</div>
+					<div>
+						<table style="padding:0px 0px;margin:0px 0px;">
+			  				<tbody>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"></td>
+			  						<td width="100px"><span id="Moff" class="spantex"></span></td>
+			  						<td width="100px"><span id="Mall_day" class="spantex"></span></td>
+			  						<td width="100px"><span id="Mscheduled_1" class="spantex"></span></td>
+			  						<td width="100px"><span id="Mscheduled_2" class="spantex"></span></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mmonday"></span></td>
+			  						<td><input type="radio" name="Nschedule_monday" id="Ischedule_monday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_monday" id="Ischedule_monday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_monday" id="Ischedule_monday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_monday" id="Ischedule_monday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mtuesday"></span></td>
+			  						<td><input type="radio" name="Nschedule_tuesday" id="Ischedule_tuesday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_tuesday" id="Ischedule_tuesday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_tuesday" id="Ischedule_tuesday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_tuesday" id="Ischedule_tuesday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mwednesday"></span></td>
+			  						<td><input type="radio" name="Nschedule_wednesday" id="Ischedule_wednesday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_wednesday" id="Ischedule_wednesday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_wednesday" id="Ischedule_wednesday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_wednesday" id="Ischedule_wednesday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mthursday"></span></td>
+			  						<td><input type="radio" name="Nschedule_thursday" id="Ischedule_thursday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_thursday" id="Ischedule_thursday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_thursday" id="Ischedule_thursday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_thursday" id="Ischedule_thursday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mfirday"></span></td>
+			  						<td><input type="radio" name="Nschedule_friday" id="Ischedule_friday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_friday" id="Ischedule_friday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_friday" id="Ischedule_friday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_friday" id="Ischedule_friday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Msaturday"></span></td>
+			  						<td><input type="radio" name="Nschedule_saturday" id="Ischedule_saturday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_saturday" id="Ischedule_saturday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_saturday" id="Ischedule_saturday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_saturday" id="Ischedule_saturday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Msunday"></span></td>
+			  						<td><input type="radio" name="Nschedule_sunday" id="Ischedule_sunday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_sunday" id="Ischedule_sunday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_sunday" id="Ischedule_sunday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_sunday" id="Ischedule_sunday" value="scheduled2"></td>
+			  					</tr>
+			  				</tbody>
+			  			</table>	
+					</div>
+				
+					<div class="content_input">
+						<label id="Msch_1"></label>
+						<span id="Msch_1_start" class="spantex"></span><select id="Msch_1_s"></select><span id="Msch_1_end" class="spantex"></span><select id="Msch_1_e"></select>
+					</div>
+					<div class="content_input">
+						<label id="Msch_2"></label>
+						<span id="Msch_2_start" class="spantex"></span><select id="Msch_2_s"></select><span id="Msch_2_end" class="spantex"></span><select id="Msch_2_e"></select>
+					</div>
+					<div class="content_select">
+						<label id="Msch_cycle"></label>
+						<select id="Isch_cycle"></select>
+					</div>
+				<!--  -->
+					<div class="content_title">
+						<label id="Msd_reboot_table"></label>
+					</div>
+					<div>
+						<table style="padding:0px 0px;margin:0px 0px;">
+			  				<tbody>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"></td>
+			  						<td width="100px"><span id="Roff" class="spantex"></span></td>
+			  						<td width="100px"><span id="Ron" class="spantex"></span></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Rmonday"></span></td>
+			  						<td><input type="radio" name="Rschedule_monday" id="Ireboot_monday" value="off"></td>
+			  						<td><input type="radio" name="Rschedule_monday" id="Ireboot_monday" value="on"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Rtuesday"></span></td>
+			  						<td><input type="radio" name="Rschedule_tuesday" id="Ireboot_tuesday" value="off"></td>
+			  						<td><input type="radio" name="Rschedule_tuesday" id="Ireboot_tuesday" value="on"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Rwednesday"></span></td>
+			  						<td><input type="radio" name="Rschedule_wednesday" id="Ireboot_wednesday" value="off"></td>
+			  						<td><input type="radio" name="Rschedule_wednesday" id="Ireboot_wednesday" value="on"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Rthursday"></span></td>
+			  						<td><input type="radio" name="Rschedule_thursday" id="Ireboot_thursday" value="off"></td>
+			  						<td><input type="radio" name="Rschedule_thursday" id="Ireboot_thursday" value="on"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Rfirday"></span></td>
+			  						<td><input type="radio" name="Rschedule_friday" id="Ireboot_friday" value="off"></td>
+			  						<td><input type="radio" name="Rschedule_friday" id="Ireboot_friday" value="on"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Rsaturday"></span></td>
+			  						<td><input type="radio" name="Rschedule_saturday" id="Ireboot_saturday" value="off"></td>
+			  						<td><input type="radio" name="Rschedule_saturday" id="Ireboot_saturday" value="on"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Rsunday"></span></td>
+			  						<td><input type="radio" name="Rschedule_sunday" id="Ireboot_sunday" value="off"></td>
+			  						<td><input type="radio" name="Rschedule_sunday" id="Ireboot_sunday" value="on"></td>
+			  					</tr>
+			  				</tbody>
+			  			</table>	
+					</div>
+					<div class="content_select">
+						<label id="Rsch_time"></label>
+						<select id="Ireboot_time"></select>
+					</div>
+				<!-- reboot end -->
+					<div class="content_title">
+						<label id="Msd_information"></label>
+					</div>
+					<div class="content_label">
+						<label id="Msd_usage"></label>
+						<div id="progressbar" style="width:150px;height:10px;"></div>
+						<span id="progressbar_note" style="display:none;" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Msd_format"></label>
+						<input type="button" id="Isd_format">
+						<font color="red"><span id='ISDCard_warning'>&nbsp;</span></font>
+					</div>
+					<div class="content_title" style="display:none;">
+						<label id="Msd_browser_file"></label>
+					</div>
+					<div class="content_input" style="display:none;">
+						<label id="Mview_file"></label>
+						<input type="button" id="Iview_file">
+					</div>
+					<div class="content_setting"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+					<div id="edit_month_schedule" style="display:none;width:100%;height:100%">
+						<div class="content_title">
+							<label id="Msd_edit_month_schedule"></label>
+						</div>
+						<div>
+							<table cellpadding="0" cellspacing="0" style="width:100%;height:0%;">
+								<thody>
+									<tr>
+										<td>&nbsp;</td>
+										<td class="spantex" style="text-align:center;"><span class="spantex" id="Mday"></span></td>
+										<td class="spantex" style="text-align:center;"><span class="spantex" id="Mhour_1"></span></td>
+										<td>&nbsp;</td>
+										<td class="spantex" style="text-align:center;"><span class="spantex" id="Mminute_1"></span></td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+									<tr class="sd_list_odd">
+										<td class="spantex" style="text-align:right;"><span class="spantex" id="Mstat_time_1"></span></td>
+										<td><select id="Imonth_s_day" style="width:80px;"></td>
+										<td><select id="Imonth_s_hour"></select></td>
+										<td><span class="spantex">:</span></td>
+										<td><select id="Imonth_s_minute"></select></td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td><span class="spantex" id="Mto_1"></span></td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+									<tr  class="sd_list_odd">
+										<td class="spantex" style="text-align:right;"><span class="spantex" id="Mend_time_1"></span></td>
+										<td><select id="Imonth_e_day" style="width:80px;"></select></td>
+										<td><select id="Imonth_e_hour"></select></td>
+										<td><span class="spantex">:</span></td>
+										<td><select id="Imonth_e_minute"></select></td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+								</thody>
+							</table>
+						</div>
+						<div style="float:right;bottom:0px;">
+							<input type="button" id="Isd_month_schedule_cancel"><input type="button" id="Isd_month_schedule_save">
+						</div>
+					</div>
+					<div id="edit_week_schedule" style="display:none;width:100%;height:100%">
+						<div class="content_title">
+							<label id="Msd_edit_week_schedule"></label>
+						</div>
+						<div>
+							<table cellpadding="0" cellspacing="0" style="width:100%;height:0%;">
+								<thody>
+									<tr>
+										<td>&nbsp;</td>
+										<td class="spantex" style="text-align:center;"><span class="spantex" id="Mweek"></span></td>
+										<td class="spantex" style="text-align:center;"><span class="spantex" id="Mhour_2"></span></td>
+										<td>&nbsp;</td>
+										<td class="spantex" style="text-align:center;"><span class="spantex" id="Mminute_2"></span></td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+									<tr class="sd_list_odd">
+										<td class="spantex" style="text-align:right;"><span class="spantex" id="Mstat_time_2"></span></td>
+										<td><select id="Iweek_s_day"></select></td>
+										<td><select id="Iweek_s_hour"></select></td>
+										<td><span class="spantex">:</span></td>
+										<td><select id="Iweek_s_minute"></select></td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td><span class="spantex" id="Mto_2"></span></td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+									<tr  class="sd_list_odd">
+										<td class="spantex" style="text-align:right;"><span class="spantex" id="Mend_time_2"></span></td>
+										<td><select id="Iweek_e_day"></select></td>
+										<td><select id="Iweek_e_hour"></select></td>
+										<td><span class="spantex">:</span></td>
+										<td><select id="Iweek_e_minute"></select></td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td width="35%">&nbsp;</td>
+									</tr>
+								</thody>
+							</table>
+						</div>
+						<div style="float:right;bottom:0px;">
+							<input type="button" id="Isd_week_schedule_cancel"><input type="button" id="Isd_week_schedule_save">
+						</div>
+					</div>
+					<div id="edit_day_schedule" style="display:none;width:100%;height:100%">
+						<div class="content_title">
+							<label id="Msd_edit_day_schedule"></label>
+						</div>
+						<div>
+							<table cellpadding="0" cellspacing="0" style="width:100%;height:0%;">
+								<thody>
+									<tr>
+										<td>&nbsp;</td>
+										<td class="spantex" style="text-align:center;"><span class="spantex" id="Mhour_3"></span></td>
+										<td>&nbsp;</td>
+										<td class="spantex" style="text-align:center;"><span class="spantex" id="Mminute_3"></span></td>
+										<td width="47%">&nbsp;</td>
+									</tr>
+									<tr class="sd_list_odd">
+										<td class="spantex" style="text-align:right;"><span class="spantex" id="Mstat_time_3"></span></td>
+										<td><select id="Iday_s_hour" style="width:60px;"></select></td>
+										<td><span class="spantex">:</span></td>
+										<td><select id="Iday_s_minute" style="width:60px;"></select></td>
+										<td width="47%">&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td><span class="spantex" id="Mto_3"></span></td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td width="47%">&nbsp;</td>
+									</tr>
+									<tr  class="sd_list_odd">
+										<td class="spantex" style="text-align:right;"><span  class="spantex" id="Mend_time_3"></span></td>
+										<td><select id="Iday_e_hour" style="width:60px;"></select></td>
+										<td><span class="spantex">:</span></td>
+										<td><select id="Iday_e_minute" style="width:60px;"></select></td>
+										<td width="47%">&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td width="47%">&nbsp;</td>
+									</tr>
+								</thody>
+							</table>
+						</div>
+						<div style="float:right;bottom:0px;">
+							<input type="button" id="Isd_day_schedule_cancel"><input type="button" id="Isd_day_schedule_save">
+						</div>
+					</div>
+				</div>
+				<div id="smallview_conf">
+					<div id="smallview_conf_pic"></div>
+					<div id="activex_area"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

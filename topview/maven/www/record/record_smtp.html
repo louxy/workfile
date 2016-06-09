@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_record_smtp"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_record_smtp" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Msmtp_condition_title"></label>
+					</div>
+					<div class="content_form">
+						<label id="Msmtp_condition"></label>
+						<input type="radio" name="Nsmtp_condition" id="Ismtp_condition_1" value="alarm"><span id="ISMTP_Condition1_Alarm" class="spantex"></span>
+						<input type="radio" name="Nsmtp_condition" id="Ismtp_condition_1" value="motion"><span id="ISMTP_Condition1_Motion" class="spantex"></span>
+						<input type="radio" name="Nsmtp_condition" id="Ismtp_condition_1" value="off"><span id="ISMTP_Condition1_OFF" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Msmtp_server"></label>
+					</div>
+					<div>
+				  		<table style="width:100%;">
+				  			<thody>
+				  			<tr>
+				  				<th class="th_left"><label id="Msmtp_addr"></label></th>
+				  				<td><input type="text" id="Ismtp_addr" size="15"></td>
+				  				<th class="th_left"><label id="Msmtp_port"></label></th>
+				  				<td><input type="text" id="Ismtp_port" size="5"><span class="spax_range" id="Ismtp_port_range"></span></td>
+				  			</tr>
+				  			<tr>
+				  				<th class="th_left"><label id="Msmtp_user"></label></th>
+				  				<td><input type="text" id="Ismtp_user"  size="15"></td>
+				  				<th class="th_left"><label id="Msmtp_passwd"></label></th>
+				  				<td><input type="password" id="Ismtp_passwd"  size="15"></td>
+
+				  			</tr>
+				  			<tr>
+				  				<th class="th_left"><label id="Msmtp_send_addr"></label></th>
+				  				<td><input type="text" id="Ismtp_send_addr" size="25"></td>
+				  				<th class="th_left"><label id="Msmtp_auth"></label></th>
+				  				<td><select id="Ismtp_auth"></select></td>
+				  			</tr>
+				  			</thody>
+				  		</table>
+				  	</div>
+					<div class="content_title">
+						<label id="Msmtp_condition_alarm"></label>
+					</div>
+					<div class="content_input">
+						<label id="Msmtp_condition_alarm_subject"></label>
+						<input type="text" id="Ismtp_condition_alarm_subject" size="40" maxlength="40">
+					</div>
+					<div class="content_input">
+						<label id="Msmtp_condition_alarm_message"></label>
+						<textarea id="Ismtp_condition_alarm_message" style="height:75px;width:265px;" scroll="yes"></textarea>
+						<span id="Msmtp_alarm_length" style="font-size:12px; color:red; display:none;"></span>
+					</div>
+					<div class="content_input">
+						<label id="Msmtp_condition_alarm_attach_image"></label>
+						<input type="radio" name="Nsmtp_condition_alarm_attach_image" id="Ismtp_condition_alarm_attach_image" value="on"><span id="Msmtp_condition_alarm_attach_image_on" class="spantex"></span>
+						<input type="radio" name="Nsmtp_condition_alarm_attach_image" id="Ismtp_condition_alarm_attach_image" value="off"><span id="Msmtp_condition_alarm_attach_image_off" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Msmtp_condition_motion"></label>
+					</div>
+					<div class="content_input">
+						<label id="Msmtp_condition_motion_subject"></label>
+						<input type="text" id="Ismtp_condition_motion_subject" size="40" maxlength="40">
+					</div>
+					<div class="content_input">
+						<label id="Msmtp_condition_motion_message"></label>
+						<textarea id="Ismtp_condition_motion_message" style="height:75px;width:265px;" scroll="yes"></textarea>
+						<span id="Msmtp_motion_length" style="font-size:12px; color:red; display:none;"></span>
+					</div>
+					<div class="content_input">
+						<label id="Msmtp_condition_motion_attach_image"></label>
+						<input type="radio" name="Nsmtp_condition_motion_attach_image" id="Ismtp_condition_motion_attach_image" value="on"><span id="Msmtp_condition_motion_attach_image_on" class="spantex"></span>
+						<input type="radio" name="Nsmtp_condition_motion_attach_image" id="Ismtp_condition_motion_attach_image" value="off"><span id="Msmtp_condition_motion_attach_image_off" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Msmtp_email_list"></label>
+					</div>
+					<div>
+				  		<table style="padding:0px 0px;margin:0px 0px;">
+			  				<tbody>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Menable"></span></td>
+			  						<td width="100px"><span class="spantex" id="Mno"></span></td>
+			  						<td width="100px"><span class="spantex" id="Maddr"></span></td>
+			  						<td width="100px"><span class="spantex" id="Malarm_1"></span></td>
+			  						<td width="100px"><span class="spantex" id="Mmotion_1"></span></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_1_en"></th>
+			  						<td><span>1</span></td>
+			  						<td><input type="text" size="40" id="Imail_1_address"></td>
+			  						<td><input type="checkbox" id="Imail_1_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_1_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_2_en"></th>
+			  						<td><span>2</span></td>
+			  						<td><input type="text" size="40" id="Imail_2_address"></td>
+			  						<td><input type="checkbox" id="Imail_2_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_2_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_3_en"></th>
+			  						<td><span>3</span></td>
+			  						<td><input type="text" size="40" id="Imail_3_address"></td>
+			  						<td><input type="checkbox" id="Imail_3_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_3_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_4_en"></th>
+			  						<td><span>4</span></td>
+			  						<td><input type="text" size="40" id="Imail_4_address"></td>
+			  						<td><input type="checkbox" id="Imail_4_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_4_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_5_en"></th>
+			  						<td><span>5</span></td>
+			  						<td><input type="text" size="40" id="Imail_5_address"></td>
+			  						<td><input type="checkbox" id="Imail_5_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_5_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_6_en"></th>
+			  						<td><span>6</span></td>
+			  						<td><input type="text" size="40" id="Imail_6_address"></td>
+			  						<td><input type="checkbox" id="Imail_6_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_6_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_7_en"></th>
+			  						<td><span>7</span></td>
+			  						<td><input type="text" size="40" id="Imail_7_address"></td>
+			  						<td><input type="checkbox" id="Imail_7_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_7_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_8_en"></th>
+			  						<td><span>8</span></td>
+			  						<td><input type="text" size="40" id="Imail_8_address"></td>
+			  						<td><input type="checkbox" id="Imail_8_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_8_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_9_en"></th>
+			  						<td><span>9</span></td>
+			  						<td><input type="text" size="40" id="Imail_9_address"></td>
+			  						<td><input type="checkbox" id="Imail_9_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_9_motion"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<th><input type="checkbox" id="Imail_10_en"></th>
+			  						<td><span>10</span></td>
+			  						<td><input type="text" size="40" id="Imail_10_address"></td>
+			  						<td><input type="checkbox" id="Imail_10_alarm"></td>
+			  						<td><input type="checkbox" id="Imail_10_motion"></td>
+			  					</tr>
+			  				</tbody>
+			  			</table>
+				  	</div>
+				  	<div class="content_setting"></div>
+				  	<div class="content_hei"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div id="activex_area"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

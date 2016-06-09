@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_record_ftp"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_record_ftp" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Mftp_condition_title"></label>
+					</div>
+					<div class="content_form">
+						<label id="Mftp_condition"></label>
+						<input type="radio" name="Nftp_condition" id="Iftp_condition_1" value="scheduled"><span id="IFTP_Condition1_Scheduled" class="spantex"></span>
+						<input type="radio" name="Nftp_condition" id="Iftp_condition_1" value="alarm_in"><span id="IFTP_Condition1_AlarmIn" class="spantex"></span>
+						<input type="radio" name="Nftp_condition" id="Iftp_condition_1" value="motion"><span id="IFTP_Condition1_Motion" class="spantex"></span>
+						<input type="radio" name="Nftp_condition" id="Iftp_condition_1" value="off"><span id="IFTP_Condition1_Off" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Mftp_server"></label>
+					</div>
+					<div>
+				  		<table style="width:100%;">
+				  			<thody>
+				  			<tr>
+				  				<th class="th_left"><label id="Mftp_addr"></label></th>
+				  				<td><input type="text" id="Iftp_addr" size="15"></td>
+				  				<th class="th_left"><label id="Mftp_port"></label></th>
+				  				<td><input type="text" id="Iftp_port" size="5"><span class="spax_range" id="Iftp_port_range"></span></td>
+				  			</tr>
+				  			<tr>
+				  				<th class="th_left"><label id="Mftp_user"></label></th>
+				  				<td><input type="text" id="Iftp_user"  size="15"></td>
+				  				<th class="th_left"><label id="Mftp_passwd"></label></th>
+				  				<td><input type="password" id="Iftp_passwd"  size="15"></td>
+
+				  			</tr>
+				  			</thody>
+				  		</table>
+				  	</div>
+					<div class="content_title">
+						<label id="Mftp_schedule_table"></label>
+					</div>
+					<div>
+						<table style="padding:0px 0px;margin:0px 0px;">
+			  				<tbody>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"></td>
+			  						<td width="100px"><span id="Moff" class="spantex"></span></td>
+			  						<td width="100px"><span id="Mall_day" class="spantex"></span></td>
+			  						<td width="100px"><span id="Mscheduled_1" class="spantex"></span></td>
+			  						<td width="100px"><span id="Mscheduled_2" class="spantex"></span></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mmonday"></span></td>
+			  						<td><input type="radio" name="Mschedule_monday" id="Ischedule_monday" value="stop"></td>
+			  						<td><input type="radio" name="Mschedule_monday" id="Ischedule_monday" value="all_day"></td>
+			  						<td><input type="radio" name="Mschedule_monday" id="Ischedule_monday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Mschedule_monday" id="Ischedule_monday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mtuesday"></span></td>
+			  						<td><input type="radio" name="Mschedule_tuesday" id="Ischedule_tuesday" value="stop"></td>
+			  						<td><input type="radio" name="Mschedule_tuesday" id="Ischedule_tuesday" value="all_day"></td>
+			  						<td><input type="radio" name="Mschedule_tuesday" id="Ischedule_tuesday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Mschedule_tuesday" id="Ischedule_tuesday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mwednesday"></span></td>
+			  						<td><input type="radio" name="Nschedule_wednesday" id="Ischedule_wednesday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_wednesday" id="Ischedule_wednesday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_wednesday" id="Ischedule_wednesday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_wednesday" id="Ischedule_wednesday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mthursday"></span></td>
+			  						<td><input type="radio" name="Nschedule_thursday" id="Ischedule_thursday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_thursday" id="Ischedule_thursday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_thursday" id="Ischedule_thursday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_thursday" id="Ischedule_thursday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Mfirday"></span></td>
+			  						<td><input type="radio" name="Nschedule_friday" id="Ischedule_friday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_friday" id="Ischedule_friday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_friday" id="Ischedule_friday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_friday" id="Ischedule_friday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Msaturday"></span></td>
+			  						<td><input type="radio" name="Nschedule_saturday" id="Ischedule_saturday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_saturday" id="Ischedule_saturday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_saturday" id="Ischedule_saturday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_saturday" id="Ischedule_saturday" value="scheduled2"></td>
+			  					</tr>
+			  					<tr style="text-align:center;">
+			  						<td class="th_left"><span id="Msunday"></span></td>
+			  						<td><input type="radio" name="Nschedule_sunday" id="Ischedule_sunday" value="stop"></td>
+			  						<td><input type="radio" name="Nschedule_sunday" id="Ischedule_sunday" value="all_day"></td>
+			  						<td><input type="radio" name="Nschedule_sunday" id="Ischedule_sunday" value="scheduled1"></td>
+			  						<td><input type="radio" name="Nschedule_sunday" id="Ischedule_sunday" value="scheduled2"></td>
+			  					</tr>
+			  				</tbody>
+			  			</table>	
+					</div>
+					<div class="content_input">
+						<label id="Msch_1"></label>
+						<span id="Msch_1_start" class="spantex"></span><select id="Msch_1_s"></select><span id="Msch_1_end" class="spantex"></span><select id="Msch_1_e"></select>
+					</div>
+					<div class="content_input">
+						<label id="Msch_2"></label>
+						<span id="Msch_2_start" class="spantex"></span><select id="Msch_2_s"></select><span id="Msch_2_end" class="spantex"></span><select id="Msch_2_e"></select>
+					</div>
+					<div class="content_select">
+						<label id="Msch_cycle"></label>
+						<select id="Isch_cycle"></select>
+					</div>
+					<div class="content_input">
+						<label id="Msch_file_name"></label>
+						<input type="text" id="Isch_file_name" size="30">
+					</div>
+					<div class="content_input">
+						<label id="Msch_server_path"></label>
+						<input type="text" id="Isch_server_path" size="30">
+					</div>
+					<div class="content_title">
+						<label id="Malarm_setting"></label>
+					</div>
+					<div class="content_select">
+						<label id="Mpre_recod_frame_alarm"></label>
+						<select id="Ipre_recod_frame_alarm"></select>
+					</div>
+					<div class="content_select">
+						<label id="Mpre_recod_cycle_alarm"></label>
+						<select id="Ipre_recod_cycle_alarm"></select>
+					</div>
+					<div class="content_select">
+						<label id="Mrecod_frame_alarm"></label>
+						<select id="Irecod_frame_alarm"></select>
+					</div>
+					<div class="content_select">
+						<label id="Mrecod_cycle_alarm"></label>
+						<select id="Irecod_cycle_alarm"></select>
+					</div>
+					<div class="content_input">
+						<label id="Mrecord_file_name_alarm"></label>
+						<input type="text" id="Irecord_file_name_alarm" size="30">
+					</div>
+					<div class="content_input">
+						<label id="Mrecord_server_path_alarm"></label>
+						<input type="text" id="Irecord_server_path_alarm" size="30">
+					</div>
+					<div class="content_title">
+						<label id="Mmotion_setting"></label>
+					</div>
+					<div class="content_select">
+						<label id="Mpre_recod_frame_motion"></label>
+						<select id="Ipre_recod_frame_motion"></select>
+					</div>
+					<div class="content_select">
+						<label id="Mpre_recod_cycle_motion"></label>
+						<select id="Ipre_recod_cycle_motion"></select>
+					</div>
+					<div class="content_select">
+						<label id="Mrecod_frame_motion"></label>
+						<select id="Irecod_frame_motion"></select>
+					</div>
+					<div class="content_select">
+						<label id="Mrecod_cycle_motion"></label>
+						<select id="Irecod_cycle_motion"></select>
+					</div>
+					<div class="content_input">
+						<label id="Mrecord_file_name_motion"></label>
+						<input type="text" id="Irecord_file_name_motion" size="30">
+					</div>
+					<div class="content_input">
+						<label id="Mrecord_server_path_motion"></label>
+						<input type="text" id="Irecord_server_path_motion" size="30">
+					</div>
+					<div class="content_setting"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div id="smallview_conf">
+					<div id="smallview_conf_pic"></div>
+					<div id="activex_area"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

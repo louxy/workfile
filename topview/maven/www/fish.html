@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/ac_quicktime.js"></script>
+<script type="text/javascript" src="/js/plugindetector.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_fish"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/ac_quicktime.js" defer></script>
+<script type="text/javascript" src="/js/plugindetector.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_fish" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+		<div id="FliveView_Activex" style="margin:0px 0px;padding:0px 0px;"></div>
+</body>
+</html>
+<script language="JavaScript">
+
+function _SetFrameMode(mode){
+		if($.fn._identifyBrowser() == "msie")
+			var ActivexFPlayerObject = $("#VideoPluginF").get(0);
+		else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+			var ActivexFPlayerObject = $("embed[name=VideoPluginF]").get(0);
+		ActivexFPlayerObject.FramesetMode=mode;
+}
+
+function _DownUpMirror(mode){
+		if($.fn._identifyBrowser() == "msie")
+			var ActivexFPlayerObject = $("#VideoPluginF").get(0);
+		else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+			var ActivexFPlayerObject = $("embed[name=VideoPluginF]").get(0);
+		ActivexFPlayerObject.DownUpMirror=mode;
+
+}
+
+function _LeftRightMirror(mode){
+		if($.fn._identifyBrowser() == "msie")
+			var ActivexFPlayerObject = $("#VideoPluginF").get(0);
+		else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+			var ActivexFPlayerObject = $("embed[name=VideoPluginF]").get(0);
+		ActivexFPlayerObject.LeftRightMirror=mode;
+}
+
+function _KeepRatio(mode){
+		if($.fn._identifyBrowser() == "msie")
+			var ActivexFPlayerObject = $("#VideoPluginF").get(0);
+		else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+			var ActivexFPlayerObject = $("embed[name=VideoPluginF]").get(0);
+		ActivexFPlayerObject.KeepRatio=mode;
+}
+
+function _FullScreen(mode){
+
+        if($.fn._identifyBrowser() == "msie"){
+            var activex_thread = setInterval(function(){
+            var ActivexF = GetActivexFPlayerObject();
+            //console.log("make sure val:" + ActivexF.FullScreen);
+            if(!ActivexF.FullScreen){
+                activex_thread = clearInterval(activex_thread);
+                $("#VideoPluginF").css("width","640px").css("height","480px");
+            }
+
+            },1000);
+            
+            if(mode==true){
+                $("#VideoPluginF").css("width",screen.width+"px").css("height",screen.height+"px");        
+            }            
+        }
+
+        var ActivexF = GetActivexFPlayerObject();
+        ActivexF.FullScreen=mode;
+}
+
+function _Correction(){
+		var ActivexF = GetActivexFPlayerObject();
+		var CenterX, CenterY, CenterRadius;
+		ActivexF.ShowDialog(1);
+		CenterX = ActivexF.CenterX;
+		CenterY = ActivexF.CenterY;
+		CenterRadius = ActivexF.CenterRadius;
+		var command = "";
+		command = "lens.dewarp.center_x"      + "=" + CenterX + "&"+
+				  "lens.dewarp.center_y"      + "=" + CenterY + "&"+
+				  "lens.dewarp.center_radius" + "=" + CenterRadius;
+		//console.log("CCenterX="+CenterX);
+		//console.log("CCenterY="+CenterY);
+		//console.log("CCenterRadius="+CenterRadius);
+		_SetParam(command);
+}
+
+function GetActivexFPlayerObject(){
+    if($.fn._identifyBrowser() == "msie")
+        var ActivexFPlayerObject = $("#VideoPluginF").get(0);
+    else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+        var ActivexFPlayerObject = $("embed[name=VideoPluginF]").get(0);
+
+    return ActivexFPlayerObject;
+}
+
+function _SetParam(param)
+{
+	console.log(param);
+	$.ajax({
+		url:'/cgi-bin/set?'+param,
+		dataType:'json',
+		cache:false,
+		success:function(data){
+		},
+		error:function(xhr, textStatus, errorThrown){
+		},
+		complete:function(){
+		}
+	});
+};
+
+
+</script>

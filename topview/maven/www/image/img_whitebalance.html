@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.slider.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<link rel="stylesheet" href="/css/jquery.ui.theme.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.core.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/ac_quicktime.js"></script>
+<script type="text/javascript" src="/js/detect_quicktime.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_img_whitebalance"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.ui.core.js" defer></script>
+<script type="text/javascript" src="/js/jquery.ui.widget.js" defer></script>
+<script type="text/javascript" src="/js/jquery.ui.mouse.js" defer></script>
+<script type="text/javascript" src="/js/jquery.ui.slider.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/ac_quicktime.js" defer></script>
+<script type="text/javascript" src="/js/detect_quicktime.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_img_whitebalance" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Mwb_title"></label>
+					</div>
+					<div class="content_select">
+						<label id="Mwb_mode"></label>
+						<select id="Iwb_mode"></select>
+					</div>
+					<div class="content_slider">
+						<div class="content_slider_div">
+							<label id="Mwb_r"></label>
+						</div>
+						<div class="content_slider_bar">
+							<input type="text" size="4"id="Iwb_r"><span class="spax_range" id="Iwb_r_range"></span>
+							<div class="slider" id="Iwb_r_bar">
+							</div>
+						</div>
+					</div>
+					<div class="content_slider">
+						<div class="content_slider_div">
+							<label id="Mwb_g"></label>
+						</div>
+						<div class="content_slider_bar">
+							<input type="text" size="4"id="Iwb_g"><span class="spax_range" id="Iwb_g_range"></span>
+							<div class="slider" id="Iwb_g_bar">
+								<div class="slider-left"></div>
+								<div class="slider-right"></div>
+							</div>
+						</div>
+					</div>
+					<div class="content_slider">
+						<div class="content_slider_div">
+							<label id="Mwb_b"></label>
+						</div>
+						<div class="content_slider_bar">
+							<input type="text" size="4"id="Iwb_b"><span class="spax_range" id="Iwb_b_range"></span>
+							<div class="slider" id="Iwb_b_bar">
+								<div class="slider-left"></div>
+								<div class="slider-right"></div>
+							</div>
+						</div>
+					</div>
+					<div class="content_setting"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div id="smallview_conf">
+					<div id="smallView_Activex" style="margin:0px 0px;padding:0px 0px;"></div>
+					<div id="smallview_conf_pic"></div>
+					<div id="activex_area"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

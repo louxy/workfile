@@ -1,0 +1,295 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/neutral.js"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/neutral.js" defer></script>
+<!--<![endif]-->
+<body onload="OnInitial();" style="cursor:wait;">
+<div id="container">
+		<div id="logo_area">
+			<div><img id="logo" src="/css/images/topview_logo_new.png"></img></div>
+			<div><span id="product_name">IP-Camera</span></div>
+		</div>
+		<div id="infor_area">
+			<div style="display:table-cell;vertical-align:middle;"><span>Software development kit</span></div>
+		</div>
+		<div <div style="width:895px;margin-right:auto;margin-left:auto;">
+		  	<div>
+		  		<table border="1" cellpadding="0" cellspacing="0" width="895px">
+		  			<tbody>
+	  					<tr style="text-align:center;">
+	  						<td width="100px"><span>request</span></td>
+	  						<td width="100px"><span>CGI command</span></td>
+	  						<td width="695px"><span>param</span></td>
+	  					</tr>
+	  					<tr style="text-align:center;">
+	  						<td width="100px"><input type="button" id="Iengineer_model_change" value="Do"></td>
+	  						<td width="100px"><span>cgi-bin/set?</span></td>
+	  						<td width="695px"><b>system.engineering.model_name | system.engineering.customer</b><br><br><select name="Nmodel_name" id="Imodel_name"></select><select name="Ncustomer" id="Icustomer"></select></td>
+	  					</tr>
+	  				</tbody>
+		  		</table>
+		  	</div>
+		</div>
+		<div id="blockUI" style="display:none;" class="blockUI">
+			<div class="blockHeader">
+				<p style="font-weight:bold;margin-top:5px;"><span id="block_header_description"></span></p>
+			</div>
+			<div class="blockContent">
+				<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+				<center>
+					<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+				</center>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script language="JavaScript">
+<!--
+
+var CGI_SET_PARAM = '/cgi-bin/set?';
+var CGI_GET_PARAM = '/cgi-bin/get?';
+var model_change=0;
+var customer_change=0;
+var URL = new Array();
+var IP = new Array();
+URL = document.URL.split('//');
+IP = URL[1].split('/');
+
+var dataQue = [];
+dataQue.push(
+	"system.model_list"
+);
+
+$.extend({
+	callback_param:function(url){
+		$.ajax({
+			url:'/cgi-bin/get?'+url,
+			dataType:'json',
+			cache:false,
+			success:function(data){
+				ObjectAssignValue(data);
+			},
+			error:function(xhr, textStatus, errorThrown){
+			},
+			complete:function(){
+				InitialFunc();
+				$('body').css('cursor','default');
+			}
+		});
+	},
+	param:function(method,param){
+		$.ajax({
+			url:method+param,
+			dataType:'json',
+			cache:false,
+			success:function(data){
+				if(method == CGI_GET_PARAM)
+					Gethandler(data);
+			},
+			error:function(xhr, textStatus, errorThrown){
+			},
+			complete:function(data){
+			}
+		});
+	},
+	reboot:function(param){
+		$.ajax({
+			url:CGI_SET_PARAM+param,
+			dataType:'json',
+			cache:false,
+			success:function(data){
+			},
+			error:function(xhr, textStatus, errorThrown){
+			},
+			complete:function(data){
+				$.blockUI({ 
+					message:$("#blockUI"),
+					css:{
+						width:'300px'
+					}
+				});
+			}
+		});
+	}
+});
+
+function OnInitial()
+{
+	$.callback_param(dataQue);
+
+	var confList = "Topview,Test-Customer".split(',');
+	$.each(confList, function(n){
+		$("#Icustomer").append($("<option></option>").attr("value", confList[n]).text(confList[n]));
+	});
+
+	confList = "ON,OFF".split(',');
+	$.each(confList, function(n){
+		$("#Itelnet_enable").append($("<option></option>").attr("value", confList[n]).text(confList[n]));
+	});
+
+	confList = "ON,OFF".split(',');
+	$.each(confList, function(n){
+		$("#Iracapd_enable").append($("<option></option>").attr("value", confList[n]).text(confList[n]));
+	});
+
+	$("#model_reboot").attr("disabled",true);
+}
+
+
+function ObjectAssignValue(src)
+{
+	$.each(src, function(parameter, value){
+		if (parameter == "system.model_list"){
+			var confList = value[1].split(';');
+			$.each(confList, function(n){
+				$("#Imodel_name").append($("<option></option>").attr("value", confList[n]).text(confList[n]));
+			});
+		} 
+	});
+}
+
+function InitialFunc()
+{
+	$("#Iset_param").bind('click', function(){
+		var param = $("#set_param_group").val();
+		
+		HttpObjectSend(CGI_SET_PARAM,param);
+	});
+
+	$("#Iget_param").bind('click', function(){
+		var param = $("#get_param_group").val();
+		
+		HttpObjectSend(CGI_GET_PARAM,param);
+	});
+
+	$("#Iengineer_reboot").bind('click', function(){
+		$("#block_header_description")[0].innerHTML = "Please Wait";
+		$("#block_content_description")[0].innerHTML = "Please wait while the camera reboots. This may take several minutes.";
+		$.reboot("system.configuration.reboot=1");
+		setTimeout(GirlAwake,100000);
+	});
+
+	$("#Iengineer_sw_reboot").bind('click', function(){
+		$("#block_header_description")[0].innerHTML = "Please Wait";
+		$("#block_content_description")[0].innerHTML = "Please wait while the camera reboots. This may take several minutes.";
+		$.reboot("system.configuration.sw_factory_default==1");
+		setTimeout(GirlAwake,100000);
+	});
+
+	$("#Iengineer_hw_reboot").bind('click', function(){
+		$("#block_header_description")[0].innerHTML = "Please Wait";
+		$("#block_content_description")[0].innerHTML = "Please wait while the camera reboots. This may take several minutes.";
+		$.reboot("system.configuration.hw_factory_default==1");
+		setTimeout(GirlAwakedefault,100000);
+	});
+
+	$("#Iengineer_model_change").bind('click', function(){
+		var param = "system.engineering.model_name"	+"="+	$("#Imodel_name").val()	+"&"+
+					"system.engineering.customer"	+"="+	$("#Icustomer").val();
+
+		HttpObjectSend(CGI_SET_PARAM,param);
+		setTimeout(Reboothandler,2000);
+	});
+
+	$("#Iengineer_telnet").bind('click', function(){
+		var param = "system.engineering.telnet_enable"+"="+$("#Itelnet_enable").val().toLowerCase();
+		
+		HttpObjectSend(CGI_SET_PARAM,param);
+	});
+
+	$("#Iengineer_racapd").bind('click', function(){
+		var param = "system.engineering.rpcapd_enable"+"="+$("#Iracapd_enable").val().toLowerCase();
+		
+		HttpObjectSend(CGI_SET_PARAM,param);
+	});
+
+}
+
+function HttpObjectSend(rMethod,rParam)
+{
+	var td=new Date();
+	var CurentTime=td.getHours()+':'+td.getMinutes()+':'+td.getSeconds();
+    	
+  	var cgi_path;
+    	
+    if(rParam == null)
+    	cgi_path= rMethod;
+	else	
+		cgi_path= rMethod + rParam;
+	
+	$.param(rMethod,rParam);
+}
+
+function Gethandler(data) 
+{
+	var td=new Date();
+	var CurentTime=td.getHours()+':'+td.getMinutes()+':'+td.getSeconds();
+	var tmp = "",len = 0;
+	$.each(data, function(parameter, value){
+		if(parameter.match(/\.+/g)){
+			tmp = tmp + parameter+"="+value[1]+",";
+		}		
+	});
+}
+
+function Reboothandler()
+{
+	$("#block_header_description")[0].innerHTML = "Please Wait";
+	$("#block_content_description")[0].innerHTML = "Please wait while the camera reboots. This may take several minutes.";
+	$.reboot("system.configuration.reboot=1");
+	setTimeout(GirlAwake,100000);
+}
+
+
+var isAlt = false;
+ $(document).keydown(function (e) {
+	 if (e.keyCode == 18) {
+		 isAlt = true;
+	 }
+	 if (e.keyCode == 188 && isAlt) {
+		Redirect();
+    	 }
+	 });
+  
+    $(document).keyup(function (e) {
+     isAlt = false;
+})
+
+function Redirect()
+{
+	window.location.replace(""+$.fn._ParserHeader()+"//"+$.fn._ParserIP()+"/www/infor_sys.html");
+}
+
+function GirlAwake()
+{	
+	var $block = $("#blockUI");
+	var $div = $("<div style=\"border:solid 1px #c00;background:rgb(255,204,204) repeat scroll;width:100%;margin:22px 0px 4px 0px;\"></div>");
+	$("<span>The device is taking longer to restart than usual. \r\n Please click <a href=\"http://"+$.fn._ParserIP()+$.fn._ParserPort()+"/www/infor_sys.html\">here</a> to connect.</span>").appendTo($div);
+	$div.appendTo($block);
+}
+
+function GirlAwakedefault()
+{	
+	var $block = $("#blockUI");
+	var $div = $("<div style=\"border:solid 1px #c00;background:rgb(255,204,204) repeat scroll;width:100%;margin:22px 0px 4px 0px;\"></div>");
+	$("<span>The device is taking longer to restart than usual. \r\n Please click <a href=\"http://192.168.0.20/login/login.html\">here</a> to connect.</span>").appendTo($div);
+	$div.appendTo($block);
+}
+
+-->
+
+</script>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_net_rtsp"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_net_rtsp" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Mrtsp_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_user"></label>
+						<input type="text" id="Irtsp_user" size="15">
+						<span id="Mrtsp_passwd" class="spantex"></span>
+						<input type="password" id="Irtsp_passwd" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_port"></label>
+						<input type="text" id="Irtsp_port" size="5"><span class="spax_range" id="Irtsp_port_range"></span>
+					</div>
+					<div class="content_title">
+						<label id="Mrtsp_nat_setting"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_nat"></label>
+						<input type="radio" name="Nrtsp_nat" id="Irtsp_nat" value="on"><span id="Nrtsp_nat_on" class="spantex"></span>
+						<input type="radio" name="Nrtsp_nat" id="Irtsp_nat" value="off"><span id="Nrtsp_nat_off" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_nat_port"></label>
+						<input type="text" id="Irtsp_nat_port" size="5"><span class="spax_range" id="Irtsp_nat_port_range"></span>
+					</div>
+					<div class="content_title">
+						<label id="Mrtsp_auth_title"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_auth"></label>
+						<input type="radio" name="Nrtsp_auth" id="Irtsp_auth" value="on"><span id="Nrtsp_auth_on" class="spantex"></span>
+						<input type="radio" name="Nrtsp_auth" id="Irtsp_auth" value="off"><span id="Nrtsp_auth_off" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Mrtsp_stream1"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream1_url"></label>
+						<input type="text" id="Irtsp_stream1_url" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream1_url_multicast"></label>
+						<input type="text" id="Irtsp_stream1_url_multicast" size="15">
+						<span id="Mrtsp_stream1_url_unicast" class="spantex"></span>
+						<input type="text" id="Irtsp_stream1_url_unicast" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream1_addr"></label>
+						<input type="text" id="Irtsp_stream1_addr" size="15"><span id="Mrtsp_stream1_addr_range" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream1_multicast_audio_addr"></label>
+						<input type="text" id="Irtsp_stream1_multicast_audio_addr" size="15"><span id="Mrtsp_stream1_multicast_audio_addr_range" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Mrtsp_stream2"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream2_url"></label>
+						<input type="text" id="Irtsp_stream2_url" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream2_url_multicast"></label>
+						<input type="text" id="Irtsp_stream2_url_multicast" size="15">
+						<span id="Mrtsp_stream2_url_unicast" class="spantex"></span>
+						<input type="text" id="Irtsp_stream2_url_unicast" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream2_addr"></label>
+						<input type="text" id="Irtsp_stream2_addr" size="15"><span id="Mrtsp_stream2_addr_range" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream2_multicast_audio_addr"></label>
+						<input type="text" id="Irtsp_stream2_multicast_audio_addr" size="15"><span id="Mrtsp_stream2_multicast_audio_addr_range" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Mrtsp_stream3"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream3_url"></label>
+						<input type="text" id="Irtsp_stream3_url" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream3_url_multicast"></label>
+						<input type="text" id="Irtsp_stream3_url_multicast" size="15">
+						<span id="Mrtsp_stream3_url_unicast" class="spantex"></span>
+						<input type="text" id="Irtsp_stream3_url_unicast" size="15">
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream3_addr"></label>
+						<input type="text" id="Irtsp_stream3_addr" size="15"><span id="Mrtsp_stream3_addr_range" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label id="Mrtsp_stream3_multicast_audio_addr"></label>
+						<input type="text" id="Irtsp_stream3_multicast_audio_addr" size="15"><span id="Mrtsp_stream3_multicast_audio_addr_range" class="spantex"></span>
+					</div>
+					<div class="content_setting"></div>
+					<div class="content_hei"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div id="smallview_conf">
+					<div id="smallview_conf_pic"></div>
+					<div id="activex_area"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

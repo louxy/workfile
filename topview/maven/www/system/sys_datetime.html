@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<link rel="stylesheet" href="/css/jquery.ui.resizable.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/tooltip.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/jquery.validator.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_sys_datetime"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/tooltip.js" defer></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/jquery.validator.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_sys_datetime" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+	<div id="reloading_container">
+		<div>
+			<img src="/css/images/animated_progress.gif" width="48" height="48"></img>
+		</div>
+	</div>
+	<div id="container" style="display:none;">
+		<div id="logo_area">
+			<div id="logo_pic"></div>
+			<div><span id="product_name"></span></div>
+		</div>
+		<div id="infor_area">
+			<div id="conf_div"><div id="conf_tmp"><div id="conf_area"></div></div></div>
+			<div id="user_div"><div id="user_tmp"><div id="user_area"></div></div></div>
+		</div>
+		<div id="content_area">
+			<div id="fix_content">
+				<div id="menu">
+					<div id="menu_lang_option">
+						<!--<div><img id="lang_icon" src="/css/images/language_icon.png" width="26" height="23"></img></div>-->
+						<div><select id="lang_select"></select></div>
+					</div>
+					<div id="siderbar_menu"></div>
+				</div>
+				<div id="main">
+					<div class="content_title">
+						<label id="Msys_datetime_title"></label>
+					</div>
+					<div class="content_input">
+						<label>&nbsp;</label>
+						<label id="Mdate" class="spantex"></label>
+						<input type="text" id="ICurrentDate" size="10" disabled=true>
+						<label id="Mtime" class="spantex"></label>
+						<input type="text" id="ICurrentTime" size="10" disabled=true>
+					</div>
+					<div class="content_title">
+						<label id="Msetting_mode"></label>
+					</div>
+					<div class="content_input">
+						<label>&nbsp;</label>
+						<input type="radio" name="Ndate_time_mode" id="Idate_time_mode" value="manual"><span id="Mset_manual" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label style="height:20px;">&nbsp;</label>
+						<span id="Mmanual_datetime" class="spantex"></span>
+						<input type="text" id="Imanual_datetime" size="20"><br>
+						<font color="red"><label id="manual_note" class="spantex"></label></font>
+					</div>
+					<div class="content_input">
+						<label>&nbsp;</label>
+						<input type="radio" name="Ndate_time_mode" id="Idate_time_mode" value="sync_from_pc"><span id="Msync_from_pc" class="spantex"></span>
+					</div>
+					<div class="content_input">
+						<label>&nbsp;</label>
+						<label id="Mpc_date" class="spantex"></label>
+						<input type="text" id="Ipc_date" size="10" disabled=true>
+						<label id="Mpc_time" class="spantex"></label>
+						<input type="text" id="Ipc_time" size="10" disabled=true>
+					</div>
+					<div class="content_input">
+						<label>&nbsp;</label>
+						<input type="radio" name="Ndate_time_mode" id="Idate_time_mode" value="ntp"><span id="Mntp" class="spantex"></span>
+					</div>
+					<div class="content_title">
+						<label id="Mntp_setting"></label>
+					</div>
+					<div class="content_input">
+						<label id="Mntp_server"></label>
+						<input type="text" id="Intp_server" size="20">
+					</div>
+					<div class="content_select">
+						<label id="Mntp_period"></label>
+						<select id="Intp_period"></select>
+					</div>
+					<div class="content_input">
+						<label id="Mntp_server_test"></label>
+						<input type="button" id="Intp_server_test">
+					</div>
+					<div class="content_title">
+						<label id="Mtime_zone_title"></label>
+					</div>
+					<div class="content_select">
+						<label id="Mtime_zone"></label>
+						<select id="Itime_zone"></select>
+					</div>
+					<div class="content_setting"></div>
+					<div id="blockUI" style="display:none;" class="blockUI">
+						<div class="blockContent">
+							<p style="margin:0px 0px;padding:4px 0px 8px 0px;"><span id="block_content_description"></span></p>
+							<center>
+								<img src="/css/images/animated_progress.gif" align="top" width="48" height="48"></img>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div id="smallview_conf">
+					<div id="smallview_conf_pic"></div>
+					<div id="activex_area"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<title></title>
+<link rel="stylesheet" href="/css/neutral.css">
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/ac_quicktime.js"></script>
+<script type="text/javascript" src="/js/plugindetector.js"></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_tmp"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script type="text/javascript" src="/js/jquery-2.0.2.min.js" defer></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" defer></script>
+<script type="text/javascript" src="/js/ac_quicktime.js" defer></script>
+<script type="text/javascript" src="/js/plugindetector.js" defer></script>
+<script type="text/javascript" src="/js/require.js" data-main="/js/r_tmp" defer></script>
+<!--<![endif]-->
+</head>
+<body>
+		<div id="liveView_Activex" style="margin:0px 0px;padding:0px 0px;"></div>
+</body>
+</html>
+<script language="JavaScript">
+var qu_wid, qu_hei;
+function _Resize(wid, hei, rel_hei){
+	if($.cookie('def_video_player') == DEFINE_ACTIVEX)
+	{
+		if($.fn._identifyBrowser() == "msie")
+		{
+			$("#VideoPlugin").css("width",""+wid+"px");
+			$("#VideoPlugin").css("height",""+hei+"px");
+		}
+		else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+		{
+			$("embed[name=VideoPlugin]").css("width",""+wid+"px");
+			$("embed[name=VideoPlugin]").css("height",""+hei+"px");
+		}
+	}
+	else if($.cookie('def_video_player') == DEFINE_QUICKTIME)
+	{
+		if ( wid == 635 && hei == 355)
+		{	
+			if(rel_hei == 1536 || rel_hei == 960 || rel_hei == 600 || rel_hei == 480 || rel_hei == 240){
+				wid = 480;
+				$("#liveView_Activex").css("margin","13px 80px auto");
+			}else{
+				$("#liveView_Activex").css("margin","12px 3px auto");
+			}
+		}else {
+			$("#liveView_Activex").css("margin","12px 3px auto");
+		}
+
+
+		qu_wid = wid;
+		qu_hei = hei;			
+		if($.fn._identifyBrowser() == "msie")
+		{
+			$("#Iquicktime").css("width",""+wid+"px");
+			$("#Iquicktime").css("height",""+hei+"px");
+		}
+		else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+		{
+			$("#Iquicktime").css("width",""+wid+"px");
+			$("#Iquicktime").css("height",""+hei+"px");
+		}
+			
+	}
+};
+
+function _SetupActivex(auth, user, passwd, url, audio, port)
+{	
+	if($.cookie('def_video_player') == DEFINE_ACTIVEX)
+	{
+		if($.fn._identifyBrowser() == "msie")
+			var ActivexPlayerObject = $("#VideoPlugin").get(0);
+		else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+			var ActivexPlayerObject = $("embed[name=VideoPlugin]").get(0);
+		
+		ActivexPlayerObject.StopStream(); 
+		ActivexPlayerObject.Init();
+
+		if(auth == "on")
+		{
+			ActivexPlayerObject.Open("rtsp://"+user+":"+passwd+"@"+$.fn._ParserSystemAddr()+":"+$.fn._ParserRtspPort()+"/"+url, PROJECT);
+		}
+		else if(auth == "off")
+		{
+			ActivexPlayerObject.Open("rtsp://"+$.fn._ParserSystemAddr()+":"+$.fn._ParserRtspPort()+"/"+url, PROJECT);
+		}
+		
+		ActivexPlayerObject.SetStreamUsingUDP(false);	
+		ActivexPlayerObject.PlayStream();				
+
+		if(model_audio == 2 || model_audio == 3){
+			if(audio == "on")
+				ActivexPlayerObject.AudioOutEnable($.fn._ParserIP());
+		}
+	}
+	else if($.cookie('def_video_player') == DEFINE_QUICKTIME)
+	{
+		var _Quicktime = $("#Iquicktime").get(0);
+		//_Quicktime.Stop();
+
+		// Remove Quick time plugin
+		$("#liveView_Activex").children().remove();
+
+		if(auth == "on")
+		{
+			$(""+QT_GenerateOBJECTText('/default.mp4', qu_wid, qu_hei, '', 'id',	'Iquicktime', 'autoplay', 'true', 'type', 'video/quicktime', 'controller', 'false', 'cache', 'false', 'scale', 'tofit', 'qtsrc', "rtsp://"+user+":"+passwd+"@"+$.fn._ParserSystemAddr()+":"+$.fn._ParserRtspPort()+"/"+url)+"").appendTo("#liveView_Activex");
+		}
+		else if(auth == "off")
+		{
+			$(""+QT_GenerateOBJECTText('/default.mp4', qu_wid, qu_hei, '', 'id',	'Iquicktime', 'autoplay', 'true', 'type', 'video/quicktime', 'controller', 'false', 'cache', 'false', 'scale', 'tofit', 'qtsrc', "rtsp://"+$.fn._ParserSystemAddr()+":"+$.fn._ParserRtspPort()+"/"+url)+"").appendTo("#liveView_Activex");
+		}
+	}
+};
+
+function _Snapshot()
+	{
+	if($.fn._identifyBrowser() == "msie")
+		var ActivexPlayerObject = $("#VideoPlugin").get(0);
+	else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+		var ActivexPlayerObject = $("embed[name=VideoPlugin]").get(0);
+
+	ActivexPlayerObject.SaveSnapshot();
+};
+
+function _FullScreen()
+{
+	if($.fn._identifyBrowser() == "msie")
+		var ActivexPlayerObject = $("#VideoPlugin").get(0);
+	else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+		var ActivexPlayerObject = $("embed[name=VideoPlugin]").get(0);
+
+	ActivexPlayerObject.FullScreen();
+};
+
+function _StartRec()
+{
+	if($.fn._identifyBrowser() == "msie")
+		var ActivexPlayerObject = $("#VideoPlugin").get(0);
+	else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+		var ActivexPlayerObject = $("embed[name=VideoPlugin]").get(0);
+
+	var record = ActivexPlayerObject.StartRecord();
+	
+	return record;
+};
+
+function _StopRec()
+{
+	if($.fn._identifyBrowser() == "msie")
+		var ActivexPlayerObject = $("#VideoPlugin").get(0);
+	else if($.fn._identifyBrowser() == "chrome" || $.fn._identifyBrowser() == "firefox" || $.fn._identifyBrowser() == "opera" || $.fn._identifyBrowser() == "safari")
+		var ActivexPlayerObject = $("embed[name=VideoPlugin]").get(0);
+
+	ActivexPlayerObject.StopRecord();
+};
+</script>
